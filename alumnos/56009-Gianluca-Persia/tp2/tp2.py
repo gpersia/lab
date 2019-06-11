@@ -10,7 +10,7 @@ listah = []
 cond = threading.Condition()
 
 def seguridad():
-        while listab.count("R") == 3 or listab.count("B") == 3:
+        while listab.count("R") == 4 or listab.count("B") == 4:
                 listah.append(listab.pop(0))
                 listab.append(listah.pop(0))
         else:
@@ -74,8 +74,8 @@ def barra_brava_boca(numeroh):
                 boca.start()
 
 if __name__ == "__main__":
-        hinchariver = threading.Thread(target=barra_brava_river, args=(2,))
-        hinchaboca = threading.Thread(target=barra_brava_boca, args=(2,))
+        hinchariver = threading.Thread(target=barra_brava_river, args=(20,))
+        hinchaboca = threading.Thread(target=barra_brava_boca, args=(20,))
 
         hinchariver.start()
         hinchaboca.start()
