@@ -2,14 +2,14 @@
 
 import os, sys
 import getopt
-import array
-import argparse
-import requests
+import array #define un tipo de objeto que puede representar de forma compacta una matriz de valores básicos
+import argparse #modulo que me ayuda a analizar argumentos de linea de comandos
+import requests #nos permite enviar solicitudes HTTP con python, no es necesario agregar manualmente consultas a las urls
 import urllib.request, urllib.parse, urllib.error #con las librerias urllib me facilita el trabajo con URLS y contienen funciones que permiten la descarga de archivos
 from PIL import Image #con la libreria PIL puedo manipular imagenes 
 from bs4 import BeautifulSoup #con esta libreria puedo hacer pulling de datos de html o de archivos xml
 from urllib.request import urlopen #la función recibe una URL, ya sea como cadena de texto o como un objeto Request y su objeto de retorno depende del tipo de URL que se le pase como argumento
-import mkred, mkgreen, mkblue
+import mkred, mkgreen, mkblue #programas que me crean las imagenes rgb
 
 opc, args = getopt.getopt(sys.argv[1:], "u:h")
 
@@ -56,7 +56,7 @@ for url in imageSources:
     cantidad = len(url)
     if (url[cantidad-3::] == "jpg"):
         try:
-            nameimg= cantimages.pop()
+            nameimg= cantimages.pop() #pop saco un elemento de la lista
             urllib.request.urlretrieve(url, path+str(nameimg)+".jpg")
             pathimg = 'imagenes descargadas/'+str(nameimg)
             img = Image.open(pathimg+".jpg").convert('RGB').save(pathimg+".ppm") #me ayuda a convertir la imagen
