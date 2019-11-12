@@ -21,7 +21,7 @@ def green(path):
     for x in range(0, height):
         for y in range(0, width):
             index = 3 * (x * width + y)
-            img[index + 1] = firstimg[index + 1]
+            img[index + 1] = firstimg[index + 0]
 
     #imagen verde guardado
     f = open(path+'green.ppm', 'wb')

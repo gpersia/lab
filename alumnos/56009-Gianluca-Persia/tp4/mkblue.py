@@ -21,9 +21,9 @@ def blue(path):
     for x in range(0, height):
         for y in range(0, width):
             index = 3 * (x * width + y)
-            img[index + 2] = firstimg[index + 2]
+            img[index + 2] = firstimg[index + 0]
 
     #imagen azul guardado
-    f =  open(ruta+'blue.ppm', 'wb')
+    f =  open(path+'blue.ppm', 'wb')
     f.write(bytearray(ppm_header, 'ascii'))
-    image.tofile(f)
+    img.tofile(f)
